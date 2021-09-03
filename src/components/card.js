@@ -1,4 +1,6 @@
-const cardsContainer = document.querySelector(".cards-container");
+import axios from "axios";
+
+//const entryPoint = document.querySelector(".cards-container");
 
  const Card = (article) => {
   const mainCard = document.createElement("div");
@@ -8,25 +10,33 @@ const cardsContainer = document.querySelector(".cards-container");
   const cardImage = document.createElement("img");
   const cardName = document.createElement("span");
 
-  mainCard.appendChild(cardHead);
-  mainCard.appendChild(cardAuthor);
-  cardAuthor.appendChild(imageBox);
-  imageBox.appendChild(cardImage);
-  cardAuthor.appendChild(cardName);
+  // mainCard.appendChild(cardHead);
+  // mainCard.appendChild(cardAuthor);
+  // cardAuthor.appendChild(imageBox);
+  // imageBox.appendChild(cardImage);
+  // cardAuthor.appendChild(cardName);
 
   mainCard.classList.add("card");
   cardHead.classList.add("headline");
   cardAuthor.classList.add("author");
   imageBox.classList.add("img-container");
 
-  cardHead.textContent = `${article.headline}`;
-  imageBox.src = `${article.authorPhoto}`;
-  cardAuthor.textContent = `${article.authorName}`;
+  cardHead.textContent = article.headline;
+  cardImage.src = article.authorPhoto;
+  cardAuthor.textContent = `By ${article.authorName}`;
+
+  mainCard.appendChild(cardHead);
+  mainCard.appendChild(cardAuthor);
+  cardAuthor.appendChild(imageBox);
+  imageBox.appendChild(cardImage);
+  cardAuthor.appendChild(cardName);
 
   mainCard.addEventListener('click', () => {
-    console.log(cardHead);
+    console.log(article.headline);
   })
-  return cardMain;
+  return mainCard;
+
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -47,7 +57,30 @@ const cardsContainer = document.querySelector(".cards-container");
   //
 }
 
+
 const cardAppender = (selector) => {
+  const url = `http://localhost:5000/api/articles/`;
+  axios.get(url)
+  .then (resp => {
+    console.log("data",resp.data.articles)
+    const article = resp.data.articles
+    //const newCard = Card(resp.data);
+    // for(selector in article) {
+    //   article[selector].forEach(data => {
+    //     const newCard = Card(data);
+    //     mainCard.appendChild(newCard)
+    //     console.log(newCard);
+    //   })
+    // }
+
+    entryPoint.appendChild(newCard);
+  })
+  .catch(error => {
+    const errorText = document.createElement = document.createElement('p');
+    errorText.textContent = "There is an error!";
+    entryPoint.appendChild(errorText)
+  });
+
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.

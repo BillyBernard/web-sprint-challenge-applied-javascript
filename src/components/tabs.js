@@ -1,6 +1,6 @@
 const Tabs = (topics) => {
-    
     const mainTopics = document.createElement("div");
+    mainTopics.classList.add('topics');
 
     topics.forEach((newTab) => {
       const madeTab = document.createElement("div");
@@ -26,7 +26,20 @@ const Tabs = (topics) => {
   //
 }
 
+
 const tabsAppender = (selector) => {
+  const entryPoint = document.querySelector(selector);
+
+  axios.get(`http://localhost:5000/api/topics`)
+  .then(resp => {
+    const anotherTab = Tabs(resp.data.topics)
+    entryPoint.appendChild(anotherTab)
+  })
+  .catch(error => {
+    const errorText = document.createElement = document.createElement('p');
+    errorText.textContent = "There is an error!";
+    entryPoint.appendChild(errorText)
+  })
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
