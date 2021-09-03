@@ -53,27 +53,24 @@ import axios from "axios";
 
 
 const cardAppender = (selector) => {
-  const url = `http://localhost:5000/api/articles/`;
-  axios.get(url)
-  .then (resp => {
-    console.log("data",resp.data.articles)
-    const article = resp.data.articles
-    //const newCard = Card(resp.data);
-    // for(selector in article) {
-    //   article[selector].forEach(data => {
-    //     const newCard = Card(data);
-    //     mainCard.appendChild(newCard)
-    //     console.log(newCard);
-    //   })
-    // }
+  const entryPoint = document.querySelector(selector);
 
-    entryPoint.appendChild(newCard);
+  axios.get(`http://localhost:5000/api/articles`)
+  .then(resp => {
+    const {articles} = resp.data;
+    const artcl = Object.keys(articles)
+    const newArticles = [];
+    artcl.forEach(item => {
+      const someArticles = articles[item]
+      Array.prototype.push.apply(newArticles, someArticles)
+    })
+
+    newArticles.forEach(article => {
+      const newCard = Card(article)
+      entryPoint.appendChild(newCard)
+    })
   })
-  .catch(error => {
-    const errorText = document.createElement = document.createElement('p');
-    errorText.textContent = "There is an error!";
-    entryPoint.appendChild(errorText)
-  });
+  
 
   // TASK 6
   // ---------------------
