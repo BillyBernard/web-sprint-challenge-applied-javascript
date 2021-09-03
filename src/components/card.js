@@ -10,12 +10,6 @@ import axios from "axios";
   const cardImage = document.createElement("img");
   const cardName = document.createElement("span");
 
-  // mainCard.appendChild(cardHead);
-  // mainCard.appendChild(cardAuthor);
-  // cardAuthor.appendChild(imageBox);
-  // imageBox.appendChild(cardImage);
-  // cardAuthor.appendChild(cardName);
-
   mainCard.classList.add("card");
   cardHead.classList.add("headline");
   cardAuthor.classList.add("author");
@@ -23,7 +17,7 @@ import axios from "axios";
 
   cardHead.textContent = article.headline;
   cardImage.src = article.authorPhoto;
-  cardAuthor.textContent = `By ${article.authorName}`;
+  cardName.textContent = `${article.authorName}`;
 
   mainCard.appendChild(cardHead);
   mainCard.appendChild(cardAuthor);
@@ -34,7 +28,7 @@ import axios from "axios";
   mainCard.addEventListener('click', () => {
     console.log(article.headline);
   })
-  return mainCard;
+  return mainCard
 
 
   // TASK 5
