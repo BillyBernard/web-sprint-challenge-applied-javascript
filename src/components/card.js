@@ -1,4 +1,32 @@
-const Card = (article) => {
+const cardsContainer = document.querySelector(".cards-container");
+
+ const Card = (article) => {
+  const mainCard = document.createElement("div");
+  const cardHead = document.createElement("div");
+  const cardAuthor = document.createElement("div");
+  const imageBox = document.createElement("div");
+  const cardImage = document.createElement("img");
+  const cardName = document.createElement("span");
+
+  mainCard.appendChild(cardHead);
+  mainCard.appendChild(cardAuthor);
+  cardAuthor.appendChild(imageBox);
+  imageBox.appendChild(cardImage);
+  cardAuthor.appendChild(cardName);
+
+  mainCard.classList.add("card");
+  cardHead.classList.add("headline");
+  cardAuthor.classList.add("author");
+  imageBox.classList.add("img-container");
+
+  cardHead.textContent = `${headline}`;
+  imageBox.src = `${authorPhoto}`;
+  cardAuthor.textContent = `${authorName}`;
+
+  mainCard.addEventListener('click', () => {
+    console.log(cardHead);
+  })
+  return cardMain;
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
