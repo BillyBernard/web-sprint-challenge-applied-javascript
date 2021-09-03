@@ -19,9 +19,9 @@ const cardsContainer = document.querySelector(".cards-container");
   cardAuthor.classList.add("author");
   imageBox.classList.add("img-container");
 
-  cardHead.textContent = `${headline}`;
-  imageBox.src = `${authorPhoto}`;
-  cardAuthor.textContent = `${authorName}`;
+  cardHead.textContent = `${article.headline}`;
+  imageBox.src = `${article.authorPhoto}`;
+  cardAuthor.textContent = `${article.authorName}`;
 
   mainCard.addEventListener('click', () => {
     console.log(cardHead);
