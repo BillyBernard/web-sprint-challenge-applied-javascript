@@ -38,9 +38,9 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 
 **Steps Required for MVP:**
 
-- [ ] Steps 1 and 2 are explained inside the `src/components/header.js` file.
-- [ ] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
-- [ ] Steps 5 and 6 are explained inside the `src/components/card.js` file.
+- [x] Steps 1 and 2 are explained inside the `src/components/header.js` file.
+- [x] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
+- [x] Steps 5 and 6 are explained inside the `src/components/card.js` file.
 
 **Important Notes:**
 
@@ -53,19 +53,32 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 
 ## Submission format
 
-- [ ] Submit via Codegrade by committing and pushing any new changes.
-- [ ] Create a pull request to merge `<firstName-lastName>` branch into `main`.
-- [ ] Please don't merge your own pull request and make sure **you are on your own repo**.
-- [ ] Check Codegrade for automated feedback.
-- [ ] Check Codegrade in the days following the Sprint Challenge for reviewer feedback.
-- [ ] Any changes pushed after the deadline will not receive any feedback.
+- [x] Submit via Codegrade by committing and pushing any new changes.
+- [x] Create a pull request to merge `<firstName-lastName>` branch into `main`.
+- [x] Please don't merge your own pull request and make sure **you are on your own repo**.
+- [x] Check Codegrade for automated feedback.
+- [x] Check Codegrade in the days following the Sprint Challenge for reviewer feedback.
+- [x] Any changes pushed after the deadline will not receive any feedback.
 
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+- The DOM is the Document Object Model and it is the representation of the objects that are the structure and content of a web document. It represents the page so that programs can change the document structure, style, and content.
+
 2. What is an event?
+- The event is the user interaction upon an HTML.
+
 3. What is an event listener?
+- An event Listener waits for a specific user interaction. For example: mainCard.addEventListener('click', () => {
+    console.log(article.headline);
+  })
+    - mainCard is listening for the 'click' to then take an additonal action.
+
 4. Why would we convert a NodeList into an Array?
+- We want to convert Nodelist's into arrays in order to be able to use array methods. For example looping over an array and then manipulating the newly made array. Some manipulations could be adding, removing, and styling data.
+
 5. What is a component?
+- A component is a reusable bit of code. It can be combination of JavasScript, CSS, and HTML.
+

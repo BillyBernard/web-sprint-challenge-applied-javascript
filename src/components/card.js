@@ -54,8 +54,8 @@ import axios from "axios";
 
 const cardAppender = (selector) => {
   const entryPoint = document.querySelector(selector);
-
-  axios.get(`http://localhost:5000/api/articles`)
+  const url = `http://localhost:5000/api/articles`
+  axios.get(url)
   .then(resp => {
     const {articles} = resp.data;
     const artcl = Object.keys(articles)
